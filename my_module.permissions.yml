@@ -1,0 +1,3 @@
+administer exode types:
+  title: 'Administer exode types'
+  restrict access: true

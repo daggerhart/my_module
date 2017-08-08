@@ -1,0 +1,11 @@
+exode.admin:
+  title: 'Exodes'
+  description: 'Manage exode types, including fields, and exode content.'
+  route_name: entity.exode.collection
+  parent: system.admin_content
+
+entity.exode_type.collection:
+  title: 'Exode types'
+  route_name: entity.exode_type.collection
+  parent: system.admin_structure
+  description: 'Manage form and displays settings of exodes.'
