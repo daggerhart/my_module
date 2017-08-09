@@ -26,6 +26,7 @@ use Drupal\user\UserInterface;
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\my_module\ExodeListBuilder",
+ *     "access" = "Drupal\my_module\ExodeEntityAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\Core\Entity\ContentEntityForm",
  *       "edit" = "Drupal\Core\Entity\ContentEntityForm",
