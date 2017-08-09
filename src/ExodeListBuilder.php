@@ -8,11 +8,13 @@ use Drupal\Core\Entity\EntityListBuilder;
 class ExodeListBuilder extends EntityListBuilder {
   public function buildHeader() {
     $header['title'] = $this->t('Title');
-    return parent::buildHeader();
+    $header['uid'] = $this->t('Owner');
+    return $header + parent::buildHeader();
   }
 
   public function buildRow(EntityInterface $entity) {
     $row['title'] = $entity->label();
-    return parent::buildRow($entity);
+    $row['uid'] = $entity->getOwner()->label();
+    return $row + parent::buildRow($entity);
   }
 }

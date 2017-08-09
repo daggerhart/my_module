@@ -1,25 +1,18 @@
-entity.exode.canonical_tab:
+# Exode entity routing definition
+
+entity.exode.canonical:
   route_name: entity.exode.canonical
-  title: 'View exode'
   base_route: entity.exode.canonical
+  title: 'View'
 
-entity.exode.edit_form_tab:
+entity.exode.edit_form:
   route_name: entity.exode.edit_form
-  title: 'Edit'
   base_route: entity.exode.canonical
-
-entity.exode.delete_form_tab:
-  route_name: entity.exode.delete_form
-  title: 'Delete'
-  base_route: entity.exode.canonical
-
-exode.admin:
-  title: 'Exodes'
-  route_name: entity.exode.collection
-  base_route: system.admin_content
-
-# Default tab for exode type editing.
-entity.exode_type.edit_form:
   title: 'Edit'
-  route_name: entity.exode_type.edit_form
-  base_route: entity.exode_type.edit_form
+
+entity.exode.delete_form:
+  route_name:  entity.exode.delete_form
+  base_route:  entity.exode.canonical
+  title: Delete
+  weight: 10
+

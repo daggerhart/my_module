@@ -31,16 +31,17 @@ use Drupal\Core\Entity\Annotation\ConfigEntityType;
  *       "delete" = "Drupal\Core\Entity\EntityDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider",
+ *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
  *     },
  *   },
+ *   admin_permission = "administer exode types",
  *   links = {
- *     "admin-form" = "/admin/structure/exode/types/{exode_type}",
- *     "add-form" = "/admin/structure/exode/types/add",
- *     "edit-form" = "/admin/structure/exode/types/{exode_type}",
- *     "delete-form" = "/admin/structure/exode/types/{exode_type}/delete",
- *     "collection" = "/admin/structure/exode/types",
- *   },
+ *     "canonical" = "/admin/structure/exode_type/{exode_type}",
+ *     "add-form" = "/admin/structure/exode_type/add",
+ *     "edit-form" = "/admin/structure/exode_type/{exode_type}/edit",
+ *     "delete-form" = "/admin/structure/exode_type/{exode_type}/delete",
+ *     "collection" = "/admin/structure/exode_type",
+ *   }
  * )
  */
 class ExodeType extends ConfigEntityBundleBase implements ExodeTypeInterface {}

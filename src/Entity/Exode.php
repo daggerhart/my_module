@@ -3,9 +3,9 @@
 namespace Drupal\my_module\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
-use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\user\UserInterface;
 
 /**
  * Defines the Exode entity.
@@ -16,7 +16,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   base_table = "exode",
  *   entity_keys = {
  *     "id" = "id",
- *     "uid" = "uid",
+ *     "uid" = "user_id",
  *     "created" = "created",
  *     "changed" = "changed",
  *     "bundle" = "type",
@@ -30,17 +30,46 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *       "add" = "Drupal\Core\Entity\ContentEntityForm",
  *       "edit" = "Drupal\Core\Entity\ContentEntityForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *     },
+ *     "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
  *     }
  *   },
  *   links = {
  *     "canonical" = "/exode/{exode}",
- *     "collection" = "/admin/content/exodes"
+ *     "add-page" = "/exode/add",
+ *     "add-form" = "/exode/add/{exode_type}",
+ *     "edit-form" = "/exode/{exode}/edit",
+ *     "delete-form" = "/exode/{exode}/delete",
+ *     "collection" = "/admin/content/exodes",
  *   },
  *   bundle_entity_type = "exode_type",
  *   field_ui_base_route = "entity.exode_type.edit_form",
  * )
  */
-class Exode extends ContentEntityBase implements ContentEntityInterface {
+class Exode extends ContentEntityBase implements ExodeInterface {
+
+  public function label(){
+    return $this->get('title')->value;
+  }
+
+  public function getOwner(){
+    return $this->get('uid')->entity;
+  }
+
+  public function getOwnerId() {
+    return $this->get('uid')->target_id;
+  }
+
+  public function setOwner(UserInterface $account) {
+    $this->set('user_id', $account->id());
+    return $this;
+  }
+
+  public function setOwnerId($uid) {
+    $this->set('uid', $uid);
+    return $this;
+  }
 
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields['id'] = BaseFieldDefinition::create('integer')

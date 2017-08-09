@@ -1,11 +1,18 @@
-exode.admin:
-  title: 'Exodes'
-  description: 'Manage exode types, including fields, and exode content.'
-  route_name: entity.exode.collection
-  parent: system.admin_content
 
+# Exode entity menu items definition
+entity.exode.collection:
+  title: 'Exode entity list'
+  route_name: entity.exode.collection
+  description: 'List Exode entities'
+  parent: system.admin_content
+  weight: 100
+
+
+# Exode entity type menu items definition
 entity.exode_type.collection:
-  title: 'Exode types'
+  title: 'Exode entity type'
   route_name: entity.exode_type.collection
+  description: 'List Exode entity type (bundles)'
   parent: system.admin_structure
-  description: 'Manage form and displays settings of exodes.'
+  weight: 99
+
