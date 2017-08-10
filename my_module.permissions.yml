@@ -1,6 +1,0 @@
-administer exode types:
-  title: 'Administer exode types'
-  restrict access: true
-
-permission_callbacks:
-  - '\Drupal\my_module\ExodePermissions::exodeTypePermissions'
